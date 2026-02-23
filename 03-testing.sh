@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 
-if [ $USERID -eq 0 ]
+if [ $USERID -ne 0 ]
 then
    echo "Error :: istall with root user"
    exit 1
