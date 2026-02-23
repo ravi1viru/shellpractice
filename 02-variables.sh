@@ -5,7 +5,7 @@ USERID=$(id -u)
 if [ $USERID -ne 0 ]
 then
    echo "Error :: istall with root user"
-   exit 1
+   
 else
    echo "you can install root user"
 
@@ -18,6 +18,6 @@ then
    echo "mysql is installed status....SUCCESS"
 else
    echo "mysql is installed status....FAILURE"
-   
+   exit 1
 
 fi
