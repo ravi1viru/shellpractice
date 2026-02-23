@@ -1,9 +1,11 @@
 #!/bin/bash
 
-person1=$1
-person2=$2
+NUMBER1=$1
 
-echo "$person1 : how are you $person2 "
-echo "$person2 : fine $person1 and how about you"
-echo "$person1 : fine what are doing"
-echo "$person2 :not daily common routune"
+if [ $NUMBER1 -lt 10 ]
+then
+   echo "number is lessthan 10"
+else
+   echo "number is not lessthan 10"
+
+fi
