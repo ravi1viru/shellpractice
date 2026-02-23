@@ -18,6 +18,6 @@ then
    echo "mysql is installed status....SUCCESS"
 else
    echo "mysql is installed status....FAILURE"
-   exit 1
+   
 
 fi
