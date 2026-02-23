@@ -1,11 +1,23 @@
 #!/bin/bash
 
-NUMBER1=$1
+USERID=$(id -u)
 
-if [ $NUMBER1 -lt 10 ]
+if [ $USERID -ne 0 ]
 then
-   echo "number is lessthan 10"
+   echo "Error :: istall with root user"
+   exit 1
 else
-   echo "number is not lessthan 10"
+   echo "you can install root user"
+
+fi
+
+dnf install mysql -y
+
+if [ $? -eq 0 ]
+then
+   echo "mysql is installed status....SUCCESS"
+else
+   echo "mysql is installed status....FAILURE"
+   exit 1
 
 fi
