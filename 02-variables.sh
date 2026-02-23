@@ -1,9 +1,9 @@
 #!/bin/bash
 
-person1=Ravi
-person2=vasu
+person1=modi
+person2=pspk
 
-echo "Ravi : how are you vasu "
-echo "vasu : fine ravi and how about you"
-echo "Ravi : fine what are doing"
-echo "vasu :not daily common routune"
+echo "$person1 : how are you $person2 "
+echo "$person2 : fine $person1 and how about you"
+echo "$person1 : fine what are doing"
+echo "$person2 :not daily common routune"
