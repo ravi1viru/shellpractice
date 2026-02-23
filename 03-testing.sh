@@ -8,3 +8,7 @@ then
    exit 1
 else
    echo "you can install root user"
+fi
+
+
+
