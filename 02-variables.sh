@@ -1,7 +1,5 @@
 #!/bin/bash
 
-Number1=100
-Number2=200
+MOVIES=("og" "harihara" "bn" "vk")
 
-sum=$((Number1+Number2))
-echo "su is $sum"
+echo "first movie is {$MOVIES[0]}"
