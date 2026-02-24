@@ -1,0 +1,56 @@
+#!/bin/bash
+
+USERID=$(id -u)
+
+# Check if the script is run as root
+if [ $USERID -ne 0 ]
+then
+   echo "Error :: install with root user"
+   exit 1
+else
+   echo "you can install root user"
+fi   # <-- this was missing
+
+# Validation function
+VALIDATE(){
+    if [ $1 -eq 0 ]
+    then
+        echo "Installing $2 is ... SUCCESS"
+    else
+        echo "Installing $2 is ... FAILURE"
+        exit 1
+    fi
+}
+
+# MySQL check and install
+dnf list installed mysql
+if [ $? -ne 0 ]
+then
+    echo "MySQL is not installed... going to install it"
+    dnf install mysql -y
+    VALIDATE $? "MySQL"
+else
+    echo "MySQL is already installed... Nothing to do"
+fi
+
+# Python3 check and install
+dnf list installed python3 
+if [ $? -ne 0 ]
+then
+    echo "python3 is not installed... going to install it"
+    dnf install python3 -y
+    VALIDATE $? "python3"
+else
+    echo "python3 is already installed... Nothing to do"
+fi
+
+# Nginx check and install
+dnf list installed nginx 
+if [ $? -ne 0 ]
+then
+    echo "nginx is not installed... going to install it"
+    dnf install nginx -y
+    VALIDATE $? "nginx"
+else
+    echo "nginx is already installed... Nothing to do"
+fi
