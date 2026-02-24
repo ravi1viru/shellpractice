@@ -26,7 +26,7 @@ if [ $? -ne 0]
 then 
 echo "please install the sql server"
      dnf install mysql -y
-     VALIDATE() "MYSQL"
+     VALIDATE $? "MYSQL"
 else
 echo "already installed the sql server no need"
 fi
@@ -36,7 +36,7 @@ if [ $? -ne 0]
 then 
 echo "please install the python server"
      dnf install pthon3 -y
-     VALIDATE() "python3"
+     VALIDATE $? "python3"
 else
 echo "already installed the python server no need"
 fi
@@ -46,7 +46,7 @@ if [ $? -ne 0]
 then 
 echo "please install the nginx server"
      dnf install nginx -y
-     VALIDATE() "nginx"
+     VALIDATE $? "nginx"
 else
 echo "already installed the nginx server no need"
 fi
