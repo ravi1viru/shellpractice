@@ -48,3 +48,5 @@ then
 else
     echo "nginx is already installed... Nothing to do"
 fi
+
+
