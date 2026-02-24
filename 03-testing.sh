@@ -8,6 +8,7 @@ then
    exit 1
 else
    echo "you can install root user"
+fi
 VALIDATE(){
     if [ $1 -eq 0 ]
     then
