@@ -5,6 +5,7 @@
 LOG_FOLDER="/var/log/shell-practice"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_NAM="$LOG_FOLDER/$SCRIPT_NAME.log"
+PACKAGES=("mysql" "python3" "nginx")
 
 mkdir -p $LOG_FOLDER
 
@@ -29,32 +30,15 @@ VALIDATE(){
     fi
 }
 
-dnf list installed mysql &>>$LOG_NAM
+for package in $(PACKAGES[@])
+do
+    dnf list installed $package &>>$LOG_NAM
 if [ $? -ne 0 ]
 then 
-echo "please install the sql server" &>>$LOG_NAM
-     dnf install mysql -y
-     VALIDATE $? "MYSQL"
+echo "please install the $package server" &>>$LOG_NAM
+     dnf install $package -y
+     VALIDATE $? "$package"
 else
-echo "already installed the sql server no need" &>>$LOG_NAM
+echo "already installed the $package server no need" &>>$LOG_NAM
 fi
-
-dnf list installed python3 &>>$LOG_NAM
-if [ $? -ne 0 ]
-then 
-echo "please install the python server" &>>$LOG_NAM
-     dnf install pthon3 -y
-     VALIDATE $? "python3"
-else
-echo "already installed the python server no need" &>>$LOG_NAM
-fi
-
-dnf list installed nginx &>>$LOG_NAM
-if [ $? -ne 0 ]
-then 
-echo "please install the nginx server" &>>$LOG_NAM
-     dnf install nginx -y
-     VALIDATE $? "nginx"
-else
-echo "already installed the nginx server no need" &>>$LOG_NAM
-fi
+done
