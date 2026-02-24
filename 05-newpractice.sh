@@ -22,7 +22,7 @@ VALIDATE(){
 }
 
 dnf list installed mysql
-if [ $? -ne 0]
+if [ $? -ne 0 ]
 then 
 echo "please install the sql server"
      dnf install mysql -y
@@ -32,7 +32,7 @@ echo "already installed the sql server no need"
 fi
 
 dnf list installed python3
-if [ $? -ne 0]
+if [ $? -ne 0 ]
 then 
 echo "please install the python server"
      dnf install pthon3 -y
@@ -42,7 +42,7 @@ echo "already installed the python server no need"
 fi
 
 dnf list installed nginx
-if [ $? -ne 0]
+if [ $? -ne 0 ]
 then 
 echo "please install the nginx server"
      dnf install nginx -y
