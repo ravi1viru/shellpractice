@@ -6,7 +6,7 @@ LOG_FOLDER="var/log/shell-practice"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_NAM="$LOG_FOLDER/$SCRIPT_NAME.log"
 
-mkdir -p $LOG_NAM
+mkdir -p $LOG_FOLDER
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]
